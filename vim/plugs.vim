@@ -13,7 +13,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'benekastah/neomake'
-Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chriskempson/base16-vim'
@@ -30,6 +29,7 @@ Plug 'digitaltoad/vim-pug',            { 'for': ['jade', 'pug'] }
 Plug 'othree/yajs.vim',                { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'jaawerth/nrun.vim'
 
 filetype plugin indent on
 syntax on

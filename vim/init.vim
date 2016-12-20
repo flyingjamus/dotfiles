@@ -2,7 +2,7 @@ set nocompatible
 
 let $vimfiles=expand('~/.vim')
 if filereadable(glob("$vimfiles/google.com"))
-  source $vimfiles/autocmds.vim
+  source $vimfiles/google.vim
 endif
 
 filetype plugin indent on
@@ -47,6 +47,7 @@ set wildmenu
 set wildmode=list:longest,full
 set winwidth=84                " makes sure the active window will always be at least 80 characters
 set nohidden
+set backupcopy=yes
 
 set titlestring=0\ %t%(\ %M%)%(\ (%{expand(\ " %:~:.:h\")})%)%(\ %a%)
 
@@ -199,7 +200,20 @@ xmap gs <plug>(GrepperOperator)
 hi link coffeeSpaceError NONE
 
 let g:neomake_coffee_enabled_makers = ['coffeelint']
+let g:neomake_sass_enabled_makers = ['sasslint']
 let g:neomake_scss_enabled_makers = ['scsslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+
+let g:neomake_error_sign = {
+    \ 'text': '✖',
+    \ 'texthl': 'ErrorMsg',
+    \ }
+let g:neomake_warning_sign = {
+    \ 'text': '⚠',
+    \ 'texthl': 'WarningMsg',
+    \ }
 
 let base16colorspace=256
 colorscheme base16-default-dark
@@ -287,6 +301,8 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap Q :q<cr>
 
+vnoremap <Leader>r "hy:%s/<C-r>h//g<left><left>
+
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -315,3 +331,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd BufWritePost *.coffee call CoffeeMake()
 autocmd FileType gitcommit,markdown setlocal spell spellcapcheck=
 autocmd FileType gitcommit  setlocal comments=fb:-,fb:* colorcolumn=72 textwidth=72
+autocmd BufNewFile,BufRead *.es6 let b:jsx_ext_found = 1
+autocmd BufNewFile,BufRead *.es6 set filetype=javascript.jsx
+
+autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
+autocmd! BufWritePost * Neomake
