@@ -11,9 +11,10 @@ source $ZSHFILES/prompt.zsh
 source $ZSHFILES/git.plugin.zsh
 source $ZSHFILES/npm.zsh
 
-
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+if [[ -d '/usr/local/share/chruby' ]]; then
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
+fi
 
 source $ZSHFILES/settings.zsh
 

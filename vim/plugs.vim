@@ -20,6 +20,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
 Plug 'ngmy/vim-rubocop'
 Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'dkprice/vim-easygrep'
@@ -29,7 +31,11 @@ Plug 'digitaltoad/vim-pug',            { 'for': ['jade', 'pug'] }
 Plug 'othree/yajs.vim',                { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'jaawerth/nrun.vim'
+Plug 'Shougo/vimproc.vim'          " Force install a dependency of tsuquyomi.
+Plug 'leafgarland/typescript-vim'  " enables TypeScript syntax-highlighting.
+Plug 'Quramy/tsuquyomi'            " enables TypeScript auto-completion.
 
 filetype plugin indent on
 syntax on

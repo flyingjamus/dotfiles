@@ -103,8 +103,11 @@ let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
 let g:markdown_fold_style = 'nested'
 let g:syntastic_javascript_checkers = ['eslint']
 
-" EasyAlign {{{1
+" TypeScript plugin setup
+let g:tsuquyomi_use_dev_node_module = 2
+let g:tsuquyomi_tsserver_path = '/google/src/head/depot/google3/third_party/javascript/node_modules/typescript/stable/lib/tsserver.js'
 
+" EasyAlign {{{1
 let g:easy_align_delimiters = {
       \ '"': { 'pattern': '"', 'ignore_groups': ['String'] },
       \ '>': { 'pattern': '>>\|->\|=>\|>' },
@@ -200,7 +203,6 @@ xmap gs <plug>(GrepperOperator)
 hi link coffeeSpaceError NONE
 
 let g:neomake_coffee_enabled_makers = ['coffeelint']
-let g:neomake_sass_enabled_makers = ['sasslint']
 let g:neomake_scss_enabled_makers = ['scsslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']

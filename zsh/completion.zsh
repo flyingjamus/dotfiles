@@ -23,6 +23,35 @@ zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 
+#gcloud
+#
+if [[ -d "$HOME/.local/lib/google-cloud-sdk" ]]; then
+  export PATH=$HOME/.local/lib/google-cloud-sdk/bin:$PATH
+  source "$HOME/.local/lib/google-cloud-sdk/completion.zsh.inc"
+  source "$HOME/.local/lib/google-cloud-sdk/path.zsh.inc"
+fi
+
+# kubectl command completion
+if [ -x "$(command -v kubectl)" ]; then
+  source <(kubectl completion zsh)
+fi
+
+function kube-context() {
+  kubectl config use-context $@
+}
+
+_kube-context_completions() {
+  local -a options
+  options=()
+  for c in $(kubectl config view -o jsonpath='{.contexts[*].name}'); do
+    d=$(echo $c | awk 'BEGIN { FS="_" }; { printf "%11s: %-15s %-14s", $4, $3, $2 }')
+    options=($options "$c:$d")
+  done
+  _describe 'Kubernetes contexts' options
+}
+
+compdef _kube-context_completions kube-context
+
 # FZF Completion: capistrano {{{1
 _fzf_complete_bec() {
   _fzf_complete "" "$@" < <(
