@@ -34,6 +34,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 
+Plug 'vim-scripts/vcscommand.vim'
+
 filetype plugin indent on
 syntax on
 call plug#end()

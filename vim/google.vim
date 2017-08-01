@@ -86,3 +86,7 @@ Glug codefmt-google
 " - enter insert mode with paste (https://github.com/tpope/vim-unimpaired)
 " - auto-detect pasting (https://github.com/ConradIrwin/vim-bracketed-paste)
 
+" Piper things?
+Glug piper plugin[mappings]='<leader>p'
+
+Glug g4

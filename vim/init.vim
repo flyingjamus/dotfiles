@@ -1,7 +1,7 @@
 set nocompatible
 
 let $vimfiles=expand('~/.vim')
-if filereadable(glob("$vimfiles/google.com"))
+if filereadable(glob("$vimfiles/google.vim"))
   source $vimfiles/google.vim
 endif
 

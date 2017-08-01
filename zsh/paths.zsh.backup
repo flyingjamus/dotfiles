@@ -1,2 +1,0 @@
-PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/mutable_node_modules/bin:$PATH"

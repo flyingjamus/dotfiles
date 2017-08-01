@@ -3,6 +3,9 @@
 # fpath=(/usr/local/share/npm/lib/node_modules/tailr/completions $fpath)
 # fpath=(/usr/local/share/npm/lib/node_modules/dns-switcher/completions $fpath)
 # fpath=($HOME/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/shaft-0.8.8/completions $fpath)
+
+# g4?
+
 fpath=($DOTF/zsh/vendor/zsh-completions/src $fpath)
 
 # 3rd party {{{1
@@ -40,6 +43,14 @@ function j() {
 
 function open() {
   xdg-open "$@"
+}
+
+function bb() {
+  if [[ $PWD =~ '(.*)/blaze-bin(.*)' ]]; then
+    cd "${match[1]}${match[2]}"
+  else
+    cd "${PWD/\/google3//google3/blaze-bin}"
+  fi
 }
 
 # Bindings {{{1
