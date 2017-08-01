@@ -133,6 +133,13 @@ let g:easy_align_delimiters = {
       \ '\': { 'pattern': '[\\]', 'ignore_groups': [] }
       \ }
 
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_javascript_prettier = {
+      \ 'exe': 'prettier',
+      \ 'args': ['--stdin', '--single-quote'],
+      \ 'stdin': 1,
+      \ }
+
 " Search {{{1
 set incsearch   " incremental search
 set ignorecase  " ignore case when search
@@ -208,6 +215,8 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
 
+let g:deoplete#enable_at_startup = 1
+
 let g:neomake_error_sign = {
     \ 'text': '✖',
     \ 'texthl': 'ErrorMsg',
@@ -262,6 +271,7 @@ vnoremap <Leader>ey "*ygv"+y
 noremap <Leader>ep "*p
 
 noremap <Leader>rws :%s/\s\+$//<cr>
+noremap <Leader>rq :%s/"/'/g<cr>
 
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
@@ -303,7 +313,14 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap Q :q<cr>
 
+" replace selection
 vnoremap <Leader>r "hy:%s/<C-r>h//g<left><left>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -324,6 +341,8 @@ map <Leader>yfp :YamlGetFullPath<cr>
 
 map <Leader>c :TComment<cr>
 
+noremap <Leader>zz :Neoformat<cr>
+
 " fix <c-h>
 nmap <BS> <C-h>
 autocmd VimEnter * call PostStartupKeys()
@@ -336,6 +355,7 @@ autocmd FileType gitcommit  setlocal comments=fb:-,fb:* colorcolumn=72 textwidth
 autocmd BufNewFile,BufRead *.es6 let b:jsx_ext_found = 1
 autocmd BufNewFile,BufRead *.es6 set filetype=javascript.jsx
 
-autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
-autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 autocmd! BufWritePost * Neomake
+
+" camelcasemotion
+call camelcasemotion#CreateMotionMappings('<leader>')

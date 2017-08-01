@@ -10,32 +10,29 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFocus', 'NERDTreeFind'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'benekastah/neomake'
-Plug 'gcorne/vim-sass-lint'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'lmeijvogel/vim-yaml-helper'
+Plug 'dkprice/vim-easygrep'
+Plug 'digitaltoad/vim-jade',           { 'for': 'jade' }
+Plug 'digitaltoad/vim-pug',            { 'for': ['jade', 'pug'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'jaawerth/nrun.vim'
+Plug 'bkad/CamelCaseMotion'
+Plug 'fatih/vim-go', { 'for': ['go'] }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sbdchd/neoformat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
-Plug 'ngmy/vim-rubocop'
-Plug 'lmeijvogel/vim-yaml-helper'
-Plug 'dkprice/vim-easygrep'
-Plug 'mattn/emmet-vim'
-Plug 'digitaltoad/vim-jade',           { 'for': 'jade' }
-Plug 'digitaltoad/vim-pug',            { 'for': ['jade', 'pug'] }
-Plug 'othree/yajs.vim',                { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'jaawerth/nrun.vim'
-Plug 'Shougo/vimproc.vim'          " Force install a dependency of tsuquyomi.
-Plug 'leafgarland/typescript-vim'  " enables TypeScript syntax-highlighting.
-Plug 'Quramy/tsuquyomi'            " enables TypeScript auto-completion.
 
 filetype plugin indent on
 syntax on

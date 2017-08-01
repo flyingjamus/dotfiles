@@ -21,3 +21,7 @@ source $ZSHFILES/settings.zsh
 source $HOME/.fzf.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f $ZSHFILES/local.zsh ] && source $ZSHFILES/local.zsh
+
+export PATH="$HOME/.yarn/bin:$PATH"
