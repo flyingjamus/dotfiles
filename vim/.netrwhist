@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/local/google/home/dansht/dev/addict/webpack'
-let g:netrw_dirhist_2='/usr/local/google/home/dansht/dev/addict/node_modules/react-select-plus'
-let g:netrw_dirhist_3='/usr/local/google/home/dansht/dev/addict/node_modules/react-select-plus/scss'
-let g:netrw_dirhist_4='/usr/local/google/home/dansht/dev/addict/node_modules/react-select-plus'
-let g:netrw_dirhist_5='/usr/local/google/home/dansht/dev/addict/node_modules/react-select-plus/scss'
-let g:netrw_dirhist_6='/usr/local/google/home/dansht/dev/addict/node_modules/react-select-plus'
-let g:netrw_dirhist_7='/usr/local/google/home/dansht/dev/adman2'
+let g:netrw_dirhist_cnt =0

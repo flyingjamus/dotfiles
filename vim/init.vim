@@ -196,7 +196,7 @@ set ttimeout
 set ttimeoutlen=20
 set notimeout
 
-" Grepper {{{1
+" Grepper
 let g:grepper = {
   \ 'tools':  ['ag'],
   \ 'open':   1,
@@ -214,6 +214,25 @@ let g:neomake_scss_enabled_makers = ['scsslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+
+let g:neomake_python_gpylint_maker = {
+      \ 'exe': 'gpylint',
+      \ 'args': [
+      \ '--mode=style',
+      \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
+      \ ],
+      \ 'errorformat':
+      \ '%A%f:%l:%c:%t: %m,' .
+      \ '%A%f:%l: %m,' .
+      \ '%A%f:(%l): %m,' .
+      \ '%-Z%p^%.%#,' .
+      \ '%-G%.%#',
+      \ 'output_stream': 'stdout',
+      \ 'postprocess': [
+      \   function('neomake#postprocess#GenericLengthPostprocess'),
+      \   function('neomake#makers#ft#python#PylintEntryProcess'),
+      \ ]}
+let g:neomake_python_enabled_makers = ['gpylint']
 
 let g:deoplete#enable_at_startup = 1
 
@@ -326,6 +345,9 @@ map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+
+nnoremap <Leader>cd :cd %:h<CR>
+
 func! PostStartupKeys()
   vnoremap <tab> >gv
   vnoremap <s-tab> <gv
@@ -342,6 +364,8 @@ map <Leader>yfp :YamlGetFullPath<cr>
 map <Leader>c :TComment<cr>
 
 noremap <Leader>zz :Neoformat<cr>
+
+noremap <Leader>pu Oimport pudb; pu.db<ESC>
 
 " fix <c-h>
 nmap <BS> <C-h>

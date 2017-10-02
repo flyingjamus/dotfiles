@@ -34,7 +34,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 
+Plug 'mhinz/vim-signify'
+
 Plug 'vim-scripts/vcscommand.vim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 filetype plugin indent on
 syntax on

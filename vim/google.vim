@@ -90,3 +90,6 @@ Glug codefmt-google
 Glug piper plugin[mappings]='<leader>p'
 
 Glug g4
+
+let g:signify_vcs_cmds = {'perforce':'DIFF=%d" -U0" citcdiff %f || [[ $? == 1 ]]'}
+let g:signify_vcs_list = ['perforce', 'git']
