@@ -1,14 +1,15 @@
 set nocompatible
 
 let $vimfiles=expand('~/.vim')
-if filereadable(glob("$vimfiles/google.vim"))
-  source $vimfiles/google.vim
-endif
 
 filetype plugin indent on
 syntax on
 
 source $vimfiles/plugs.vim
+if filereadable(glob("$vimfiles/google.vim"))
+  source $vimfiles/google.vim
+endif
+
 syntax enable
 
 let mapleader = ','
@@ -67,6 +68,10 @@ endif
 
 if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+if executable("rg")
+  set grepprg=rg\ --nogroup\ --nocolor
 endif
 
 let g:netrw_localrmdir='rm -r'
@@ -198,10 +203,10 @@ set notimeout
 
 " Grepper
 let g:grepper = {
-  \ 'tools':  ['ag'],
+  \ 'tools':  ['rg'],
   \ 'open':   1,
   \ 'switch': 0,
-  \ 'jump':   1
+  \ 'jump':   0
 \ }
 
 nmap gs <plug>(GrepperOperator)

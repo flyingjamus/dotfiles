@@ -41,6 +41,22 @@ Plug 'vim-scripts/vcscommand.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'Shougo/vimproc.vim'          " Force install a dependency of tsuquyomi.
+Plug 'leafgarland/typescript-vim'  " enables TypeScript syntax-highlighting.
+Plug 'Quramy/tsuquyomi'
+" Plug 'mhartington/nvim-typescript'
+
+" let g:tsuquyomi_use_dev_node_module = 2
+" let g:tsuquyomi_tsserver_path = '/google/src/head/depot/google3/third_party/javascript/node_modules/typescript/stable/lib/tsserver.js'
+" let g:nvim_typescript#server_path = '/google/src/head/depot/google3/third_party/javascript/node_modules/typescript/stable/lib/tsserver.js'
+
+autocmd FileType typescript nmap <buffer> <Leader>t: <C-u>echo tsuquyomi#hint()<CR>
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
+nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
+" Plug 'mhartington/deoplete-typescript'
+
+
 filetype plugin indent on
 syntax on
 call plug#end()
