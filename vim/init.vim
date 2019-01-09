@@ -49,6 +49,7 @@ set wildmode=list:longest,full
 set winwidth=84                " makes sure the active window will always be at least 80 characters
 set nohidden
 set backupcopy=yes
+set guicursor=
 
 set titlestring=0\ %t%(\ %M%)%(\ (%{expand(\ " %:~:.:h\")})%)%(\ %a%)
 
@@ -144,6 +145,11 @@ let g:neoformat_javascript_prettier = {
       \ 'args': ['--stdin', '--single-quote'],
       \ 'stdin': 1,
       \ }
+let g:neoformat_typescript_prettier = {
+      \ 'exe': 'prettier',
+      \ 'args': ['--stdin', '--parser', 'typescript', '--single-quote', '--trailing-comma', 'es5'],
+      \ 'stdin': 1,
+      \ }
 
 " Search {{{1
 set incsearch   " incremental search
@@ -206,7 +212,7 @@ let g:grepper = {
   \ 'tools':  ['rg'],
   \ 'open':   1,
   \ 'switch': 0,
-  \ 'jump':   0
+  \ 'jump':   1
 \ }
 
 nmap gs <plug>(GrepperOperator)
@@ -215,7 +221,7 @@ xmap gs <plug>(GrepperOperator)
 hi link coffeeSpaceError NONE
 
 let g:neomake_coffee_enabled_makers = ['coffeelint']
-let g:neomake_scss_enabled_makers = ['scsslint']
+" let g:neomake_scss_enabled_makers = ['scsslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
@@ -359,8 +365,6 @@ func! PostStartupKeys()
   vnoremap <space> 20j
 endfunc
 
-vnoremap p "_dP
-
 noremap <C-s> :w<cr>
 inoremap <C-s> <ESC>:w<cr>
 
@@ -369,8 +373,10 @@ map <Leader>yfp :YamlGetFullPath<cr>
 map <Leader>c :TComment<cr>
 
 noremap <Leader>zz :Neoformat<cr>
+noremap <Leader>zx :FormatCode<cr>
+noremap <Leader>zc :Neoformat<cr>:FormatCode<cr>
 
-noremap <Leader>pu Oimport pudb; pu.db<ESC>
+noremap <Leader>pu Oimport pdb; pdb.set_trace()<ESC>
 
 " fix <c-h>
 nmap <BS> <C-h>
@@ -385,6 +391,11 @@ autocmd BufNewFile,BufRead *.es6 let b:jsx_ext_found = 1
 autocmd BufNewFile,BufRead *.es6 set filetype=javascript.jsx
 
 autocmd! BufWritePost * Neomake
+
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
+augroup END
 
 " camelcasemotion
 call camelcasemotion#CreateMotionMappings('<leader>')

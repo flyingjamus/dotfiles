@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/google/src/cloud/dansht/depends_outcome/google3/production/sisyphus/blue_ginger'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/local/google/home/dansht/spot/google3/java/com/google/android/apps/spot'
+let g:netrw_dirhist_2='/usr/local/google/home/dansht/spot/google3'
+let g:netrw_dirhist_3='/usr/local/google/home/dansht/spot/google3/experimental/iot/spot/asset-tracking-demo-app'
+let g:netrw_dirhist_4='/usr/local/google/home/dansht/spot/google3'
