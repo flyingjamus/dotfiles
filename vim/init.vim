@@ -6,9 +6,10 @@ filetype plugin indent on
 syntax on
 
 source $vimfiles/plugs.vim
-if filereadable(glob("$vimfiles/google.vim"))
-  source $vimfiles/google.vim
-endif
+
+" if filereadable(glob("$vimfiles/google.vim"))
+"   source $vimfiles/google.vim
+" endif
 
 syntax enable
 
@@ -258,6 +259,8 @@ let g:neomake_warning_sign = {
 
 let base16colorspace=256
 colorscheme base16-default-dark
+" set termguicolors
+
 
 highlight MatchParen NONE term=underline cterm=underline gui=underline
 
