@@ -141,17 +141,14 @@ let g:easy_align_delimiters = {
       \ }
 
 let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_javascript_prettier = {
-      \ 'exe': 'prettier',
-      \ 'args': ['--stdin', '--single-quote'],
-      \ 'stdin': 1,
-      \ }
-let g:neoformat_typescript_prettier = {
-      \ 'exe': 'prettier',
-      \ 'args': ['--stdin', '--parser', 'typescript', '--single-quote', '--trailing-comma', 'es5'],
-      \ 'stdin': 1,
-      \ }
-
+let g:neoformat_enabled_typescript = ['prettier']
+" let g:neoformat_enabled_typescriptreact = ['prettier']
+let g:neoformat_typescriptreact_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--stdin', '--stdin-filepath', '"%:p"', '--parser', 'typescript'],
+    \ 'stdin': 1
+    \ }
+let g:neoformat_enabled_typescriptreact = ['tsfmt', 'prettier']
 " Search {{{1
 set incsearch   " incremental search
 set ignorecase  " ignore case when search
@@ -208,9 +205,11 @@ set ttimeout
 set ttimeoutlen=20
 set notimeout
 
+" 'grepprg': 'rg --vimgrep --'
 " Grepper
 let g:grepper = {
   \ 'tools':  ['rg'],
+  \ 'rg': { 'grepprg': 'rg --vimgrep -S --' },
   \ 'open':   1,
   \ 'switch': 0,
   \ 'jump':   1
@@ -385,7 +384,7 @@ noremap <Leader>pu Oimport pdb; pdb.set_trace()<ESC>
 nmap <BS> <C-h>
 autocmd VimEnter * call PostStartupKeys()
 
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 autocmd BufWritePost *.coffee call CoffeeMake()
 autocmd FileType gitcommit,markdown setlocal spell spellcapcheck=
@@ -402,3 +401,8 @@ augroup END
 
 " camelcasemotion
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+
+source $vimfiles/ts.vim
+
+

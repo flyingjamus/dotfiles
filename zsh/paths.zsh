@@ -7,3 +7,4 @@ export GOROOT=$HOME/.local/lib/go
 export GOPATH=$HOME/go
 
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH

@@ -11,6 +11,7 @@ fpath=($DOTF/zsh/vendor/zsh-completions/src $fpath)
 # 3rd party {{{1
 
 cached_eval rbenv rbenv init --no-rehash -
+eval "$(rbenv init -)"
 
 cached_eval fasd fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install \
   zsh-wcomp zsh-wcomp-install
@@ -79,7 +80,7 @@ unsetopt CLOBBER            # Do not overwrite existing files with > and >>.
 # FZF {{{1
 
 # make FZF respect .gitignore
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color never --no-heading -S'
 
 # Misc {{{1
 
