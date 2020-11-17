@@ -10,7 +10,7 @@ source $ZSHFILES/prompt.zsh
 
 source $ZSHFILES/git.plugin.zsh
 source $ZSHFILES/npm.zsh
-
+# #
 if [[ -d '/usr/local/share/chruby' ]]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
@@ -25,3 +25,4 @@ source $HOME/.fzf.zsh
 [ -f $ZSHFILES/local.zsh ] && source $ZSHFILES/local.zsh
 
 export PATH="$HOME/.yarn/bin:$PATH"
+

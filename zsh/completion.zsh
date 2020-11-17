@@ -27,21 +27,21 @@ zstyle ':completion:*' verbose yes
 
 #gcloud
 #
-if [[ -d "$HOME/.local/lib/google-cloud-sdk" ]]; then
-  export PATH=$HOME/.local/lib/google-cloud-sdk/bin:$PATH
-  source "$HOME/.local/lib/google-cloud-sdk/completion.zsh.inc"
-  source "$HOME/.local/lib/google-cloud-sdk/path.zsh.inc"
-fi
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/danny/.local/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/home/danny/.local/lib/google-cloud-sdk/path.zsh.inc'; fi
 
-# kubectl command completion
-if [ -x "$(command -v kubectl)" ]; then
-  source <(kubectl completion zsh)
-fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/danny/.local/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/danny/.local/lib/google-cloud-sdk/completion.zsh.inc'; fi
 
-function kube-context() {
-  kubectl config use-context $@
-}
-
+# # kubectl command completion
+# if [ -x "$(command -v kubectl)" ]; then
+#   source <(kubectl completion zsh)
+# fi
+#
+# function kube-context() {
+#   kubectl config use-context $@
+# }
+#
 _kube-context_completions() {
   local -a options
   options=()
