@@ -99,3 +99,5 @@ _npm_list_scripts() {
 _fzf_complete_nr_post() {
   IFS=": " awk '{print $1}' | sed 's/:$//'
 }
+
+HEROKU_AC_ZSH_SETUP_PATH=/home/danny/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;

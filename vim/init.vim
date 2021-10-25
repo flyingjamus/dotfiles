@@ -142,6 +142,7 @@ let g:easy_align_delimiters = {
 
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_xml = ['prettier']
 " let g:neoformat_enabled_typescriptreact = ['prettier']
 let g:neoformat_typescriptreact_prettier = {
     \ 'exe': 'prettier',

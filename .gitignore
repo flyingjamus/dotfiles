@@ -1,3 +1,5 @@
 vim/plugged/
 vim/google.vim
+vim/.plugged
+vim/.netrwhist
 zsh/local.zsh
