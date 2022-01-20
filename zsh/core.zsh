@@ -21,5 +21,5 @@ has_command() {
 export EDITOR=nvim
 alias vim='nvim'
 
-export P4DIFF=colordiff
-export P4MERGE="kdiff3"
+eval "$(direnv hook zsh)"
+
